@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .complete {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="btnAdd">Add</button>
+  <br />
+  <div id="tasks"></div>
+
+  <script>
+    const btnAdd = document.getElementById('btnAdd')
+    const tasks = document.getElementById('tasks')
+
+    btnAdd.addEventListener('click', addTask)
+
+    function addTask() {
+      const taskText = document.createElement('div')
+      const span = document.createElement('span')
+      const editBtn = document.createElement('button')
+      const delBtn = document.createElement('button')
+
+      span.textContent = 'New Task'
+      editBtn.textContent = 'Edit'
+      delBtn.textContent = 'Del'
+
+      editBtn.addEventListener('click', editTask)
+      delBtn.addEventListener('click', delTask)
+      span.addEventListener('click', toggleLineThrough)
+
+      taskText.appendChild(span);
+      taskText.appendChild(editBtn);
+      taskText.appendChild(delBtn);
+
+      tasks.appendChild(taskText);
+    }
+
+    function editTask() {
+      const task = this.parentElement;
+      const span = task.querySelector('span');
+      const newText = prompt('New task');
+      if (newText !== null && newText.trim() !== '') {
+        span.textContent = newText;
+      }
+    }
+
+    function delTask() {
+      const task = this.parentElement;
+      task.remove();
+    }
+
+    function toggleLineThrough() {
+      this.classList.toggle('complete')
+    }
+
+  </script>
+</body>
+
+</html>

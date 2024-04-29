@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+    <button id="btnMinus">-</button>
+    <span>0</span>
+    <button id="btnPlus">+</button>
+    <button id="Reset">Reset</button>
+
+  <script>
+    const btnMinus = document.getElementById('btnMinus')
+    const btnPlus = document.getElementById('btnPlus')
+    const btnReset = document.getElementById('Reset')
+    const count = document.querySelector('span')
+
+    btnPlus.addEventListener('click', function () {
+      const curr = +count.textContent;
+      const newCurr = curr + 1;
+      count.textContent = newCurr
+    });
+    btnMinus.addEventListener('click', function () {
+      const curr = +count.textContent;
+      if (curr > 0) {
+        const newCurr = curr - 1;
+        count.textContent = newCurr
+      };
+    })
+    btnReset.addEventListener('click', function () {
+      count.textContent = '0'
+    })
+  </script>
+</body>
+
+</html>

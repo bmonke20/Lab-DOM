@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" name="tel" value="" placeholder="Phone Number">
+  <button>Check</button>
+  <p style="color: red; display: none;">Phone number is required</p>
+  <p class="invalid" style="display: none;">Phone Number is invalid</p>
+  <p class="length" style="display: none;">Invalid length</p>
+</body>
+
+<script>
+  const tel = document.querySelector('input[name="tel"]');
+  const hide = document.querySelector('p');
+  const invalid = document.querySelector('.invalid');
+  const length = document.querySelector('.length');
+  const btn = document.querySelector('button');
+
+  btn.addEventListener('click', () => {
+    if (tel.value.trim() === "") {
+      hide.style.display = "block";
+      invalid.style.display = "none";
+      length.style.display = "none";
+    } else if (isNaN(+tel.value.trim())) {
+      hide.style.display = "none";
+      invalid.style.display = "block";
+      length.style.display = "none";
+    } else if (tel.value.trim().length !== 10) {
+      hide.style.display = "none";
+      invalid.style.display = "none";
+      length.style.display = "block";
+    }
+    else {
+      hide.style.display = "none";
+      invalid.style.display = "none";
+      length.style.display = "none";
+      alert("Your number is valid");
+    }
+  });
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="btn">Submit</button>
+  <script>
+    const btn = document.getElementsByClassName('btn')[0]
+    function changeColor() {
+      setTimeout(function () {
+        btn.style.backgroundColor = 'red';
+      }, 3000)
+      setTimeout(function () {
+        btn.style.backgroundColor = ''
+      }, 5000)
+    }
+    changeColor()
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="province">Province :</label>
+  <select name="province" id="province">
+    <option value="select">--Select--</option>
+    <option value="bangkok">Bangkok</option>
+    <option value="burirum">Burirum</option>
+    <option value="nontaburi">Nontaburi</option>
+  </select>
+  <br>
+  <label for="district">District :</label>
+  <select name="district" id="district">
+    <option value="select">--Select--</option>
+  </select>
+</body>
+
+<script>
+  const province = document.getElementById('province')
+  const districtSelect = document.getElementById('district')
+
+  const listDistrict = {
+    bangkok: ['1', '2', '3','a','b','A','B','C','D'],
+    burirum: ['4', '5', '6','c','d','e'],
+    nontaburi: ['7', '8', '9','f','g','h']
+  };
+
+  function districts() {
+    const selectedProvince = province.value
+    const districtOpt = listDistrict[selectedProvince] || []
+
+    districtSelect.innerHTML = "";
+
+    districtOpt.forEach(function (district) {
+      const option = document.createElement("option");
+      option.text = district;
+      districtSelect.add(option)
+    })
+    districtSelect.style.display = districtOpt.length > 0 ? "inline" : "none"
+  }
+
+  province.addEventListener("change", districts)
+  districts(); // Call districts initially to set the initial state
+</script>
+
+</html>

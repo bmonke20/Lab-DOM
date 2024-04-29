@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="">Google</a>
+  <form action="https://google.com" style="display: none;">
+    <p>“Leave for https://google.com?”</p>
+    <button id="okBtn">OK</button>
+    <button id="cancelBtn">Cancel</button>
+  </form>
+</body>
+
+<script>
+  const link = document.querySelector('a')
+  const confirm = document.querySelector('form')
+  const okBtn = document.getElementById('okBtn')
+  const cancelBtn = document.getElementById('cancelBtn')
+
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    confirm.style.display = "";
+
+    okBtn.addEventListener('click', (e) => {
+      confirm.submit();})
+
+      cancelBtn.addEventListener('click', (e) => {
+        confirm.action = "";})
+    
+  })
+
+
+</script>
+
+</html>
